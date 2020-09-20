@@ -1,0 +1,14 @@
+.main-menu > li {
+  display: inline-block;
+  margin-right: 3em;
+}
+
+$active: #f00;
+// Style the active class (and buttons on mouse-over)
+.added {
+  color: $active;
+
+  button {
+    color: $active;
+  }
+}

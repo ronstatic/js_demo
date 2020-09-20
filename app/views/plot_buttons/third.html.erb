@@ -1,0 +1,18 @@
+<h1>PlotButtons#third</h1>
+<p>Find me in app/views/plot_buttons/third.html.erb</p>
+
+<% @projects.each do |project| %>
+  <div class="container">
+    <div class="left-panel">
+        <div>
+          <%= project[:name] %>
+          <button class="button-add-plot" data-project_id="<%= project[:project_id] %>" data-plot_id="<%= project[:plot_id] %>">Add</button>
+          <button class="button-remove-plot" data-project_id="<%= project[:project_id] %>" data-plot_id="<%= project[:plot_id] %>">Remove</button>
+        </div>
+      <button class="clear-plot" data-plot_id="<%= project[:plot_id] %>">Clear Plot</button>
+    </div>
+    <div class="chart-area">
+      <canvas class="chart_area_canvas" data-plot_id="<%= project[:plot_id] %>" width="400" height="400"></canvas>
+    </div>
+  </div>
+<% end %>

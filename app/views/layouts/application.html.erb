@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <ul class="main-menu">
+      <li><%= link_to 'Home', root_path%></li>
+      <li><%= link_to 'Demo', plot_buttons_demo_path %></li>
+      <li><%= link_to 'Second Chart', plot_buttons_second_path %></li>
+      <li><%= link_to 'Third Chart', plot_buttons_third_path %></li>
+      <li><%= link_to 'No Charts here', plot_buttons_no_plots_path %></li>
+    </ul>
+    <hr>
     <%= yield %>
   </body>
 </html>

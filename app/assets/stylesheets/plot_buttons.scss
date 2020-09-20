@@ -1,0 +1,17 @@
+// Place all the styles related to the PlotButtons controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.left-panel {
+  margin-bottom: 50px;
+  margin-right: 50px;
+  width: max-content;
+}
+
+.chart-area {
+  width: 500px;
+}
