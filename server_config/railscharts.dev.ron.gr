@@ -1,0 +1,56 @@
+server {
+
+        server_name railscharts.dev.ron.gr;
+
+	access_log /home/ruby/railscharts/log/access.log;
+	error_log /home/ruby/railscharts/log/error.log warn;
+	underscores_in_headers on;
+	passenger_min_instances 1;
+
+	client_max_body_size 10M;
+
+	location / {
+
+		index index.html;
+
+		passenger_enabled on;
+		rails_env    production;
+		root         /home/ruby/railscharts/public;
+
+		passenger_ruby /home/ruby/.rbenv/versions/2.6.6/bin/ruby;
+
+		# redirect server error pages to the static page /50x.html
+		error_page   500 502 503 504  /50x.html;
+		location = /50x.html {
+			root   html;
+		}
+# 		auth_basic "Private property";
+#		auth_basic_user_file /etc/nginx/.htpasswd;
+	}
+
+
+
+    listen 443 ssl; # managed by Certbot
+    listen [::]:443 ssl;
+
+    ssl_certificate /etc/letsencrypt/live/railscharts.dev.ron.gr/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/railscharts.dev.ron.gr/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+server {
+    if ($host = railscharts.dev.ron.gr) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+
+        server_name railscharts.dev.ron.gr;
+
+    listen 80;
+    listen [::]:80;
+    return 404; # managed by Certbot
+
+
+}
