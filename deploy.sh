@@ -43,4 +43,4 @@ rsync -ruvz --delete \
   --filter=':- .gitignore' \
   ./ pan.ron.gr:/home/ruby/"$dir"
 rsync -ruvz --delete public/ pan.ron.gr:/home/ruby/"$dir"/public/
-ssh pan.ron.gr sudo -u ruby /home/ruby/pre-server-restart.sh /home/ruby/"$dir"
+ssh pan.ron.gr sudo -u ruby /home/ruby/pre-server-restart.sh /home/ruby/"$dir" sidekiq-railscharts
